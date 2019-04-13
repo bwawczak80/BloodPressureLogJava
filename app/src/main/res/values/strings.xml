@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">BloodPressureLog</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="iconLog">Log BP</string>
+    <string name="iconHistory">History</string>
+    <string name="iconStats">BP Stats</string>
+    <string name="iconRecs">Recommendations</string>
+    <string name="iconSettings">Settings</string>
+    <string name="history">History</string>
+    <string name="logTitle">Blood Pressure Log</string>
+    <string name="systolic">Systolic</string>
+    <string name="diastolic">Diastolic</string>
+    <string name="pulse">Pulse</string>
+    <string name="notes">Notes</string>
+    <string name="btnLogBP">Log BP</string>
+    <string name="guidelinesTitle">Guidelines</string>
+    <string name="bpInputHint"> mmHG</string>
+    <string name="pulseHint"> BPM</string>
+    <string name="notesHint"> Optional</string>
+</resources>

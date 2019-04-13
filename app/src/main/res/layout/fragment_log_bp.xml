@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bpGray">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:clickable="false"
+        android:inputType="none"
+        android:text="@string/logTitle"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:clickable="false"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="@string/systolic"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="@string/diastolic"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="@string/pulse"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        android:gravity="center"
+        android:inputType="none"
+        android:text="@string/notes"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+
+        android:id="@+id/systolicInput"
+        android:layout_width="210dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:ems="10"
+        android:hint="@string/bpInputHint"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/bpGray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/diastolicInput"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:ems="10"
+        android:hint="@string/bpInputHint"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/bpGray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/systolicInput"
+        app:layout_constraintStart_toStartOf="@+id/systolicInput"
+        app:layout_constraintTop_toBottomOf="@+id/systolicInput" />
+
+    <EditText
+        android:id="@+id/pulseInput"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:ems="10"
+        android:hint="@string/pulseHint"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/bpGray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/diastolicInput"
+        app:layout_constraintStart_toStartOf="@+id/diastolicInput"
+        app:layout_constraintTop_toBottomOf="@+id/diastolicInput" />
+
+    <EditText
+        android:id="@+id/notesInput"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:ems="10"
+        android:hint="@string/notesHint"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/bpGray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/pulseInput"
+        app:layout_constraintStart_toStartOf="@+id/pulseInput"
+        app:layout_constraintTop_toBottomOf="@+id/pulseInput" />
+
+    <TextView
+        android:id="@+id/timeDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="current Time"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notesInput" />
+
+    <TextView
+        android:id="@+id/logDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="bp display"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeDisplay" />
+
+    <Button
+        android:id="@+id/btnLogBP"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/btnLogBP"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logDisplay" />
+</android.support.constraint.ConstraintLayout>
