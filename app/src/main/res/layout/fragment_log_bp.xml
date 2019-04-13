@@ -86,7 +86,7 @@
 
     <EditText
 
-        android:id="@+id/systolicInput"
+        android:id="@+id/idSystolicInput"
         android:layout_width="210dp"
         android:layout_height="32dp"
         android:layout_marginTop="48dp"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/diastolicInput"
+        android:id="@+id/idDiastolicInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
@@ -119,12 +119,12 @@
         android:textColor="@android:color/black"
         android:textColorHint="@color/bpGray"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/systolicInput"
-        app:layout_constraintStart_toStartOf="@+id/systolicInput"
-        app:layout_constraintTop_toBottomOf="@+id/systolicInput" />
+        app:layout_constraintEnd_toEndOf="@+id/idSystolicInput"
+        app:layout_constraintStart_toStartOf="@+id/idSystolicInput"
+        app:layout_constraintTop_toBottomOf="@+id/idSystolicInput" />
 
     <EditText
-        android:id="@+id/pulseInput"
+        android:id="@+id/idPulseInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
@@ -138,12 +138,12 @@
         android:textColor="@android:color/black"
         android:textColorHint="@color/bpGray"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/diastolicInput"
-        app:layout_constraintStart_toStartOf="@+id/diastolicInput"
-        app:layout_constraintTop_toBottomOf="@+id/diastolicInput" />
+        app:layout_constraintEnd_toEndOf="@+id/idDiastolicInput"
+        app:layout_constraintStart_toStartOf="@+id/idDiastolicInput"
+        app:layout_constraintTop_toBottomOf="@+id/idDiastolicInput" />
 
     <EditText
-        android:id="@+id/notesInput"
+        android:id="@+id/idNotesInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
@@ -157,12 +157,12 @@
         android:textColor="@android:color/black"
         android:textColorHint="@color/bpGray"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/pulseInput"
-        app:layout_constraintStart_toStartOf="@+id/pulseInput"
-        app:layout_constraintTop_toBottomOf="@+id/pulseInput" />
+        app:layout_constraintEnd_toEndOf="@+id/idPulseInput"
+        app:layout_constraintStart_toStartOf="@+id/idPulseInput"
+        app:layout_constraintTop_toBottomOf="@+id/idPulseInput" />
 
     <TextView
-        android:id="@+id/timeDisplay"
+        android:id="@+id/idTimeDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -171,10 +171,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesInput" />
+        app:layout_constraintTop_toBottomOf="@+id/idNotesInput" />
 
     <TextView
-        android:id="@+id/logDisplay"
+        android:id="@+id/idLogDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -183,7 +183,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/idTimeDisplay" />
 
     <Button
         android:id="@+id/btnLogBP"
@@ -196,5 +196,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/idLogDisplay" />
 </android.support.constraint.ConstraintLayout>
