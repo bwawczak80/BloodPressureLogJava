@@ -31,6 +31,8 @@
     Click the link below for more information.</string>
     <string name="info">Info</string>
     <string name="enter">Enter</string>
+    <string name="splashImage">Blood Pressure image</string>
+    <string name="chartImage">Blood Pressure Guidelines Chart</string>
     <string name="terms">Terms and Conditions</string>
     <string name="agree">I Agree to the terms and conditions</string>
     <string name="checkBelow">Checking below asserts</string>

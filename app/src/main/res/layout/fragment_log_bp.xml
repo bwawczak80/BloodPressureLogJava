@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -96,6 +97,7 @@
         android:layout_marginTop="40dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
+        android:focusable="true"
         android:ems="10"
         android:hint="@string/bpInputHint"
         android:inputType="number"
@@ -107,15 +109,20 @@
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/idTimeDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/idTimeDisplay"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
 
     <EditText
+        android:importantForAutofill="no"
+        tools:targetApi="o"
         android:id="@+id/idDiastolicInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
+        android:focusable="true"
         android:ems="10"
         android:hint="@string/bpInputHint"
         android:inputType="number"
@@ -130,12 +137,15 @@
         app:layout_constraintTop_toBottomOf="@+id/idSystolicInput" />
 
     <EditText
+        android:importantForAutofill="no"
+        tools:targetApi="o"
         android:id="@+id/idPulseInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
+        android:focusable="true"
         android:ems="10"
         android:hint="@string/pulseHint"
         android:inputType="number"
@@ -150,12 +160,15 @@
         app:layout_constraintTop_toBottomOf="@+id/idDiastolicInput" />
 
     <EditText
+        android:importantForAutofill="no"
+        tools:targetApi="o"
         android:id="@+id/idNotesInput"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginTop="24dp"
         android:background="@color/colorPrimary"
         android:clickable="true"
+        android:focusable="true"
         android:ems="10"
         android:hint="@string/notesHint"
         android:inputType="textPersonName"
