@@ -3,12 +3,15 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#444444</color>
     <color name="colorAccent">#3391CC</color>
+
     <color name="bpRed">#FF5959</color>
     <color name="bpBlue">#3391CC</color>
+    <color name="bpGreen">#6FDB9C</color>
     <color name="bpYellow">#FFFD73</color>
     <color name="bpSlate">#444444</color>
     <color name="bpGray">#A9A9A9</color>
     <color name="bpLightOrange">#FFB759</color>
     <color name="bpDarkOrange">#FF8200</color>
+    <color name="darkRed">#890E00</color>
 
 </resources>
