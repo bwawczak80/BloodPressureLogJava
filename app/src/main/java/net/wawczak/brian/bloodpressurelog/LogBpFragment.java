@@ -24,14 +24,16 @@ public class LogBpFragment extends Fragment {
     String note;
     String time;
 
-    Context thisContext;
+    DatabaseHelper myDatabaseHelper;
 
+    Context thisContext;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_log_bp, container, false);
         thisContext = container.getContext();
+        myDatabaseHelper = new DatabaseHelper(thisContext);
 
 
         final EditText systolic = v.findViewById(R.id.idSystolicInput);
@@ -68,6 +70,10 @@ public class LogBpFragment extends Fragment {
 
                 if(validateData(sys, dia, bpm)) {
                     int warningLabel = calculateBpWarning(sys, dia);
+
+                    AddToSQL(time);
+
+
 
                     switch (warningLabel) {
                         case 1:
@@ -142,6 +148,18 @@ public class LogBpFragment extends Fragment {
     private void toastMessage(String message){
         Toast.makeText(thisContext,message, Toast.LENGTH_SHORT).show();
     }
+
+    public void AddToSQL(String time) {
+        boolean insertData = myDatabaseHelper.addData(time);
+
+        if(insertData) {
+            toastMessage("Successfully Logged");
+        }else {
+            toastMessage("Failed to Log data");
+        }
+    }
+
+
 
 
 }

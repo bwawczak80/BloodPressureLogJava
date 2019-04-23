@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(navListener);
 
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LogBpFragment()).commit();
     }
 
