@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 public class DisclaimerPage extends AppCompatActivity {
 
@@ -23,11 +24,14 @@ public class DisclaimerPage extends AppCompatActivity {
                 if (agree.isChecked()) {
                     startActivity(new Intent(DisclaimerPage.this, MainActivity.class));
                 }else{
-
-                    agree.setTextColor(getResources().getColor(R.color.bpRed));
+                    toastMessage("You must agree to the Terms and Conditions");
                 }
 
             }
         });
+    }
+
+    private void toastMessage(String message){
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 }

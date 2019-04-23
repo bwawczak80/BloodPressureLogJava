@@ -1,5 +1,6 @@
 package net.wawczak.brian.bloodpressurelog;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -22,11 +24,14 @@ public class LogBpFragment extends Fragment {
     String note;
     String time;
 
+    Context thisContext;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_log_bp, container, false);
+        thisContext = container.getContext();
 
 
         final EditText systolic = v.findViewById(R.id.idSystolicInput);
@@ -91,8 +96,9 @@ public class LogBpFragment extends Fragment {
                             break;
                     }
                 }else {
-                    logDisplay.setText(getString(R.string.errorMsg));
-                    logDisplay.setBackgroundColor(getResources().getColor(R.color.bpGray));
+                    toastMessage("The information you entered is not valid. Please try again");
+//                    logDisplay.setText(getString(R.string.errorMsg));
+                    logDisplay.setBackgroundColor(getResources().getColor(R.color.bpSlate));
                 }
 
 
@@ -133,5 +139,9 @@ public class LogBpFragment extends Fragment {
         }else return !(s >= 500) && !(d >= 300) && !(p >= 300);
 
     }
+    private void toastMessage(String message){
+        Toast.makeText(thisContext,message, Toast.LENGTH_SHORT).show();
+    }
+
 
 }
