@@ -25,14 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.history:
                     selectedFragment = new HistoryFragment();
                     break;
-                case R.id.stats:
-                    selectedFragment = new StatsFragment();
-                    break;
                 case R.id.recs:
                     selectedFragment = new RecsFragment();
-                    break;
-                case R.id.settings:
-                    selectedFragment = new SettingsFragment();
                     break;
             }
 
