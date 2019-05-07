@@ -1,4 +1,10 @@
 <resources>
+    <string name="exampleTime">5/1/2019 2:14:45 pm</string>
+    <string name="exampleSystolic">110</string>
+    <string name="exampleDiastolic">75</string>
+    <string name="exampleNotes">Forgot Meds</string>
+    <string name="examplePulse">80</string>
+
     <string name="app_name">BloodPressureLog</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

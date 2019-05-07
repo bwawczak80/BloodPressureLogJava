@@ -1,9 +1,13 @@
 package net.wawczak.brian.bloodpressurelog;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +17,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Objects;
+
+import static android.content.Context.MODE_APPEND;
+
 
 public class LogBpFragment extends Fragment {
 
@@ -23,8 +34,13 @@ public class LogBpFragment extends Fragment {
     double bpm;
     String note;
     String time;
+    EditText systolic;
+    EditText diastolic;
+    EditText pulse;
+    EditText notes;
+    TextView timeDisplay;
 
-    DatabaseHelper myDatabaseHelper;
+
 
     Context thisContext;
 
@@ -33,20 +49,21 @@ public class LogBpFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_log_bp, container, false);
         thisContext = container.getContext();
-        myDatabaseHelper = new DatabaseHelper(thisContext);
 
 
-        final EditText systolic = v.findViewById(R.id.idSystolicInput);
-        final EditText diastolic = v.findViewById(R.id.idDiastolicInput);
-        final EditText pulse = v.findViewById(R.id.idPulseInput);
-        final EditText notes = v.findViewById(R.id.idNotesInput);
-        final TextView timeDisplay = v.findViewById(R.id.idTimeDisplay);
+
+       systolic = v.findViewById(R.id.idSystolicInput);
+       diastolic = v.findViewById(R.id.idDiastolicInput);
+       pulse = v.findViewById(R.id.idPulseInput);
+       notes = v.findViewById(R.id.idNotesInput);
+       timeDisplay = v.findViewById(R.id.idTimeDisplay);
         final TextView logDisplay = v.findViewById(R.id.idLogDisplay);
         Button logBp = v.findViewById(R.id.btnLogBP);
 
         timeDisplay.setText(dateTimeStamp());
 
         logBp.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
 
@@ -70,9 +87,6 @@ public class LogBpFragment extends Fragment {
 
                 if(validateData(sys, dia, bpm)) {
                     int warningLabel = calculateBpWarning(sys, dia);
-
-                    AddToSQL(time);
-
 
 
                     switch (warningLabel) {
@@ -101,20 +115,17 @@ public class LogBpFragment extends Fragment {
                             logDisplay.setBackgroundColor(getResources().getColor(R.color.bpRed));
                             break;
                     }
+                    writeFile();
                 }else {
                     toastMessage("The information you entered is not valid. Please try again");
-//                    logDisplay.setText(getString(R.string.errorMsg));
+
                     logDisplay.setBackgroundColor(getResources().getColor(R.color.bpSlate));
                 }
-
-
             }
         });
 
-
         return v;
     }
-
     public  int calculateBpWarning(double s, double d) {
         int bpWarningLevel = 0;
         if (s < 120 && d < 80 && s >= 100 && d >= 60){
@@ -149,16 +160,33 @@ public class LogBpFragment extends Fragment {
         Toast.makeText(thisContext,message, Toast.LENGTH_SHORT).show();
     }
 
-    public void AddToSQL(String time) {
-        boolean insertData = myDatabaseHelper.addData(time);
 
-        if(insertData) {
-            toastMessage("Successfully Logged");
-        }else {
-            toastMessage("Failed to Log data");
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void writeFile() {
+        String systolicUserInput = systolic.getText().toString();
+        String diastolicUserInput = diastolic.getText().toString();
+        String bloodPressure = dateTimeStamp() + "  " + systolicUserInput + " / " + diastolicUserInput + "\n";
+
+        try {
+
+            getActivity();
+            FileOutputStream fileOutputStream = Objects.requireNonNull(getActivity()).openFileOutput("bloodPressureLog.txt", MODE_APPEND);
+            fileOutputStream.write(bloodPressure.getBytes());
+            fileOutputStream.close();
+            Toast.makeText(thisContext.getApplicationContext(), "Log saved", Toast.LENGTH_SHORT).show();
+
+            systolic.setText("");
+            diastolic.setText("");
+            //pulse.setText("");
+            //notes.setText("");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    }
 
+    }
 
 
 

@@ -24,14 +24,14 @@ public class DisclaimerPage extends AppCompatActivity {
                 if (agree.isChecked()) {
                     startActivity(new Intent(DisclaimerPage.this, MainActivity.class));
                 }else{
-                    toastMessage("You must agree to the Terms and Conditions");
+                    toastMessage();
                 }
 
             }
         });
     }
 
-    private void toastMessage(String message){
-        Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    private void toastMessage(){
+        Toast.makeText(this, "You must agree to the Terms and Conditions", Toast.LENGTH_SHORT).show();
     }
 }

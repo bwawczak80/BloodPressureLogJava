@@ -10,8 +10,8 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@color/bpGray">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -39,8 +39,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:text="@string/disclaim"
-                android:textColor="@android:color/black"
-                />
+                android:textColor="@android:color/black" />
         </RelativeLayout>
     </ScrollView>
 
@@ -61,10 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:background="@color/bpBlue"
-        android:text="@string/enter"
         android:layout_below="@id/idCheckBox"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@color/bpBlue"
+        android:text="@string/enter" />
 
 </RelativeLayout>
