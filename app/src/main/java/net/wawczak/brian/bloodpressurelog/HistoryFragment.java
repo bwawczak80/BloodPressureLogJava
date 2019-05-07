@@ -32,7 +32,6 @@ public class HistoryFragment extends Fragment {
 
         try {
 
-
             FileInputStream fileInputStream = getActivity().openFileInput("bloodPressureLog.txt");
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 

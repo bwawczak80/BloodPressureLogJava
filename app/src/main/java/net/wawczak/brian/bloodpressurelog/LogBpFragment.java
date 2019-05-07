@@ -2,7 +2,6 @@ package net.wawczak.brian.bloodpressurelog;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -48,6 +46,7 @@ public class LogBpFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_log_bp, container, false);
+        assert container != null;
         thisContext = container.getContext();
 
 
@@ -117,7 +116,7 @@ public class LogBpFragment extends Fragment {
                     }
                     writeFile();
                 }else {
-                    toastMessage("The information you entered is not valid. Please try again");
+                    toastMessage();
 
                     logDisplay.setBackgroundColor(getResources().getColor(R.color.bpSlate));
                 }
@@ -156,16 +155,22 @@ public class LogBpFragment extends Fragment {
         }else return !(s >= 500) && !(d >= 300) && !(p >= 300);
 
     }
-    private void toastMessage(String message){
-        Toast.makeText(thisContext,message, Toast.LENGTH_SHORT).show();
+    private void toastMessage(){
+        Toast.makeText(thisContext, "The information you entered is not valid. Please try again", Toast.LENGTH_SHORT).show();
     }
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void writeFile() {
+
         String systolicUserInput = systolic.getText().toString();
         String diastolicUserInput = diastolic.getText().toString();
-        String bloodPressure = dateTimeStamp() + "  " + systolicUserInput + " / " + diastolicUserInput + "\n";
+        String pulseUserInput = pulse.getText().toString();
+        String notesUserInput = notes.getText().toString();
+
+        String bloodPressure = dateTimeStamp() + "\nSystolic: " + systolicUserInput + " Diastolic: " + diastolicUserInput + "\nPulse: " + pulseUserInput + "\nNotes: "
+                + notesUserInput + "\n\n";
+
 
         try {
 
@@ -177,8 +182,8 @@ public class LogBpFragment extends Fragment {
 
             systolic.setText("");
             diastolic.setText("");
-            //pulse.setText("");
-            //notes.setText("");
+            pulse.setText("");
+            notes.setText("");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
